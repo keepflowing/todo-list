@@ -119,9 +119,11 @@ body {
 .column {
     background-color: #F4FDFF;
     border-radius: 15px;
+    box-sizing: border-box;
     box-shadow:
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     flex: 0 0 auto;
+    padding: 2rem;
     width: 370px;
 }
 
