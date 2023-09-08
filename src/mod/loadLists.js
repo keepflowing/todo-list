@@ -5,7 +5,7 @@ const loadLists = (list) => {
         let column = document.createElement("div");
         column.classList.add("column");
         let h2 = document.createElement("h2");
-        h2.innerText = list[i];
+        h2.innerText = list[i][0];
         column.appendChild(h2);
 
         let div = document.createElement("div");

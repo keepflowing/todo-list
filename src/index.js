@@ -12,7 +12,7 @@ const scroll = loadScroll();
 
 const listsBtn = document.querySelector("#navLists");
 listsBtn.addEventListener("click", () => {
-    storedList ? loadLists(storedList) : loadLists(["Test", "Test2"]);
+    storedList ? loadLists(storedList) : loadLists([["Test"], ["Test2"]]);
     scroll.classList.remove("invisible");});
 
 const settingsBtn = document.querySelector("#navSettings");
@@ -21,6 +21,9 @@ settingsBtn.addEventListener("click", () => {
     scroll.classList.add("invisible");});
 
 const addBtn = document.querySelector("#add-list");
-addBtn.addEventListener("click", () => {createListItem()});
+addBtn.addEventListener("click", () => {
+    createListItem();
+    storedList = JSON.parse(localStorage.getItem("lists"));
+    loadLists(storedList)});
 
-storedList ? loadLists(storedList) : loadLists(["Test", "Test2"]);
+storedList ? loadLists(storedList) : loadLists([["Test"], ["Test2"]]);
