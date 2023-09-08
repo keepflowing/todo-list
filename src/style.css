@@ -7,6 +7,10 @@ body {
     padding-top: 2rem;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
 #top-bar {
     align-items: center;
     display: flex;
@@ -52,6 +56,18 @@ body {
     color: black;
 }
 
+#add-list {
+    color: #585858;
+    cursor: pointer;
+    font-size: 28px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#add-list:hover {
+    color: black;
+}
+
 #btn-container {
     align-items: center;
     background-color: #F4FDFF;
@@ -62,15 +78,21 @@ body {
     height: 50px;
     justify-content: space-around;
     padding: 15px;
-    width: 100px;
+    width: 120px;
 }
 
 #btn-container button {
+    background-color: #e7e7e7;
     border: solid black 1px;
     border-radius: 100px;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    font-size: 18px;
+    height: 45px;
+    width: 45px;
+}
+
+#btn-container button:hover {
+    background-color: #a2a2a2;
 }
 
 #content {
@@ -80,6 +102,18 @@ body {
     height: 600px;
     overflow: hidden;
     padding-top: 2rem;
+}
+
+#settings-page {
+    align-items: center;
+    background-color: #F4FDFF;
+    border-radius: 15px;
+    box-shadow:
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    width: 500px;
 }
 
 .column {

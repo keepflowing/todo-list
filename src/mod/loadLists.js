@@ -1,4 +1,6 @@
 const loadLists = (list) => {
+    content.innerHTML = "";
+    content.scroll(0,0);
     for (let i = 0; i < list.length; i++) {
         let column = document.createElement("div");
         column.classList.add("column");
