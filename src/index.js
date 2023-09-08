@@ -1,11 +1,9 @@
 import './style.css';
+import initiateSite from './mod/initiateSite';
+import loadLists from './mod/loadLists'
 
-function component() {
-    const element = document.createElement('div');
+let storedList = JSON.parse(localStorage.getItem("lists"));
 
-    element.innerText = "Hello world";
+initiateSite();
 
-    return element;
-}
-
-document.body.appendChild(component());
+storedList ? loadLists(storedList) : loadLists(["Test", "Test2"]);
