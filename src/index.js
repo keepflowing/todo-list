@@ -1,6 +1,6 @@
 import './style.css';
 import loadBar from './mod/loadBar';
-import loadLists from './mod/loadLists'
+import loadLists from './mod/loadLists';
 import loadSettings from './mod/loadSettings';
 import createList from './mod/createList';
 

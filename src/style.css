@@ -85,6 +85,7 @@ body {
     background-color: #e7e7e7;
     border: solid black 1px;
     border-radius: 100px;
+    color: black;
     cursor: pointer;
     font-size: 18px;
     height: 45px;
@@ -129,4 +130,19 @@ body {
 
 .column h2 {
     font-size: 20px;
+}
+
+.add-list-item {
+    border: solid black 1px;
+    border-radius: 5px;
+    color: #585858;
+    cursor: pointer;
+    font-size: 16px;
+    height: 30px;
+    margin-top: 10px;
+    width: 30px;
+}
+
+.add-list-item:hover {
+    color: black;
 }
