@@ -1,14 +1,18 @@
 import './style.css';
-import initiateSite from './mod/initiateSite';
+import loadBar from './mod/loadBar';
 import loadLists from './mod/loadLists'
 import loadSettings from './mod/loadSettings';
-import loadScroll from './mod/loadScroll';
 import createListItem from './mod/createListItem';
 
 let storedList = JSON.parse(localStorage.getItem("lists"));
 
-initiateSite();
-const scroll = loadScroll();
+loadBar();
+
+const scroll = document.querySelector("#btn-container");
+
+const content = document.createElement("div");
+content.id = "content";
+document.body.appendChild(content);
 
 const listsBtn = document.querySelector("#navLists");
 listsBtn.addEventListener("click", () => {
