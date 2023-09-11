@@ -1,6 +1,6 @@
 import { getLocalStorage, setLocalStorage } from "../models/storage";
 import loadListItems from "./loadListItems";
-import addListItem from "../controller/addListItem";
+import createTodoDialog from "./createTodoDialog";
 
 const loadLists = () => {
     let list = getLocalStorage();
@@ -28,8 +28,9 @@ const loadLists = () => {
         btn.innerText = "+";
 
         btn.addEventListener("click", () => {
-            addListItem(currList.id);
-            loadLists();
+            let dialog = createTodoDialog(currList.id);
+            document.body.appendChild(dialog);
+            dialog.showModal();
         })
 
         column.append(btn);
