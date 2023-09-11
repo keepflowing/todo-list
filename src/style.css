@@ -175,3 +175,16 @@ dialog {
 dialog::backdrop {
     backdrop-filter: blur(10px);
 }
+
+form * {
+    display: block;
+    margin: 5px;
+}
+
+form label {
+    display: inline-block;
+}
+
+form select {
+    display: inline-block
+}

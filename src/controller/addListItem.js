@@ -1,8 +1,8 @@
 import { getLocalStorage, setLocalStorage } from "../models/storage";
 import Todo from "../models/todo";
 
-const addListItem = (id, name, desc) => {
-    let newTodo = new Todo(name, desc, "Low", 2024);
+const addListItem = (id, name, desc, prio, date) => {
+    let newTodo = new Todo(name, desc, prio, date);
     let lists = getLocalStorage();
     for (let i in lists) {
         if (lists[i].id === id) {

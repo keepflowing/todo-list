@@ -11,17 +11,39 @@ const createTodoDialog = (id) => {
     const form = document.createElement("form")
     const name = document.createElement("input");
     const desc = document.createElement("input");
+    const date = document.createElement("input");
+    const prio = document.createElement("select");
     const btn = document.createElement("input");
+
+    prio.innerHTML = `
+    <option value="default">None</option>
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>`;
+
     dialog.id = "create-todo-dialog";
+    
     name.type = "text";
-    name.id = "name-input";
+    name.placeholder = "Title..."
     form.appendChild(name);
+    
     desc.type = "text";
-    desc.id = "desc-input";
+    desc.placeholder = "Description..."
     form.appendChild(desc);
-    form.appendChild(btn);
+    
+    date.type = "date";
+    form.appendChild(date);
+    
+    let label = document.createElement("label");
+    prio.id = "prio";
+    label.for = "prio";
+    label.innerText = "Priority:"
+    form.appendChild(label);
+    form.appendChild(prio);
+
     btn.type = "submit";
     btn.value = "Submit";
+    form.appendChild(btn);
 
 
     h1.innerText = "hello world";
@@ -29,7 +51,7 @@ const createTodoDialog = (id) => {
     dialog.appendChild(form);
 
     btn.addEventListener("click", () => {
-        addListItem(id, name.value, desc.value);
+        addListItem(id, name.value, desc.value, date.value, prio.value);
         loadLists();
     });
 
