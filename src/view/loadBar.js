@@ -1,5 +1,6 @@
 import loadLists from "./loadLists";
 import loadSettings from "./loadSettings";
+import createListDialog from "./createListDialog";
 
 const loadScroll = (topBar) => {
 
@@ -36,6 +37,7 @@ const loadScroll = (topBar) => {
 }
 
 const loadBar = () => {
+    const dialog = createListDialog();
     const topBar = document.createElement("div");
     topBar.id = "top-bar";
 
@@ -78,8 +80,8 @@ const loadBar = () => {
     });
 
     addList.addEventListener("click", () => {
-        createList(prompt("Name?"));
-        loadLists()
+        document.body.appendChild(dialog);
+        dialog.showModal();
     });
 
     document.body.appendChild(topBar);
