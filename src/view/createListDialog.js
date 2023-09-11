@@ -9,6 +9,7 @@ const createListDialog = () => {
     const btn = document.createElement("input");
     name.type = "text";
     name.id = "name-input";
+    name.required = true;
     form.appendChild(name);
     form.appendChild(btn);
     btn.type = "submit";
@@ -20,8 +21,10 @@ const createListDialog = () => {
     dialog.appendChild(form);
 
     btn.addEventListener("click", () => {
-        createList(name.value);
-        loadLists();
+        if (name.value.length > 0) {
+            createList(name.value);
+            loadLists();
+        }
     });
 
 

@@ -25,13 +25,17 @@ const createTodoDialog = (id) => {
     
     name.type = "text";
     name.placeholder = "Title..."
+    name.maxLength = 25;
+    name.required = true;
     form.appendChild(name);
     
     desc.type = "text";
     desc.placeholder = "Description..."
+    desc.maxLength = 75;
     form.appendChild(desc);
     
     date.type = "date";
+    date.required = true;
     form.appendChild(date);
     
     let label = document.createElement("label");
@@ -51,8 +55,10 @@ const createTodoDialog = (id) => {
     dialog.appendChild(form);
 
     btn.addEventListener("click", () => {
-        addListItem(id, name.value, desc.value, date.value, prio.value);
-        loadLists();
+        if (name.value.length > 0 && date.value !== "") {
+            addListItem(id, name.value, desc.value, date.value, prio.value);
+            loadLists();
+        }
     });
 
 
