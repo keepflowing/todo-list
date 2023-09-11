@@ -1,3 +1,6 @@
+import loadLists from "./loadLists";
+import loadSettings from "./loadSettings";
+
 const loadScroll = (topBar) => {
 
     const btnContainer = document.createElement("div");
@@ -50,6 +53,7 @@ const loadBar = () => {
         link.innerText = navLinks[i];
 
         nav.appendChild(link)
+        navLinks[i] = link;
     }
 
     const addList = document.createElement("div");
@@ -62,6 +66,21 @@ const loadBar = () => {
 
     topBar.appendChild(nav);
     topBar.appendChild(scroll);
+
+    navLinks[1].addEventListener("click", () => {
+        loadLists();
+        scroll.classList.remove("invisible");
+    });
+
+    navLinks[2].addEventListener("click", () => {
+        loadSettings();
+        scroll.classList.add("invisible");
+    });
+
+    addList.addEventListener("click", () => {
+        createList(prompt("Name?"));
+        loadLists()
+    });
 
     document.body.appendChild(topBar);
 }
