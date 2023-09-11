@@ -1,10 +1,8 @@
 import './style.css';
-import loadBar from './mod/loadBar';
-import loadLists from './mod/loadLists';
-import loadSettings from './mod/loadSettings';
-import createList from './mod/createList';
-
-let storedList = JSON.parse(localStorage.getItem("lists"));
+import loadBar from './view/loadBar';
+import loadLists from './view/loadLists';
+import loadSettings from './view/loadSettings';
+import createList from './controller/createList';
 
 loadBar();
 
@@ -16,7 +14,7 @@ const scroll = document.querySelector("#btn-container");
 
 const listsBtn = document.querySelector("#navLists");
 listsBtn.addEventListener("click", () => {
-    storedList ? loadLists(storedList) : loadLists([["Test"], ["Test2"]]);
+    loadLists();
     scroll.classList.remove("invisible");});
 
 const settingsBtn = document.querySelector("#navSettings");
@@ -26,8 +24,7 @@ settingsBtn.addEventListener("click", () => {
 
 const addBtn = document.querySelector("#add-list");
 addBtn.addEventListener("click", () => {
-    createList();
-    storedList = JSON.parse(localStorage.getItem("lists"));
-    loadLists(storedList)});
+    createList(prompt("Name?"));
+    loadLists()});
 
-storedList ? loadLists(storedList) : loadLists([["Test"], ["Test2"]]);
+loadLists();

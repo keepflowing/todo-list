@@ -1,15 +1,21 @@
+import { getLocalStorage, setLocalStorage } from "../models/storage";
 import loadListItems from "./loadListItems";
-import addListItem from "./addListItem";
+import addListItem from "../controller/addListItem";
 
-const loadLists = (list) => {
+const loadLists = () => {
+    let list = getLocalStorage();
+    if (list === null) {
+        list = []
+    }
     content.innerHTML = "";
     content.scroll(0,0);
     for (let i = 0; i < list.length; i++) {
+        let currList = list[i];
         let column = document.createElement("div");
         column.classList.add("column");
-        column.id = "l" + list[i][1];
+        column.id = "l" + currList.id;
         let h2 = document.createElement("h2");
-        h2.innerText = list[i][0];
+        h2.innerText = currList.name;
         column.appendChild(h2);
 
         let listsDiv = document.createElement("div");
@@ -22,16 +28,15 @@ const loadLists = (list) => {
         btn.innerText = "+";
 
         btn.addEventListener("click", () => {
-            addListItem(list[i][1]);
-            let x = JSON.parse(localStorage.getItem("lists"));
-            loadLists(x);
+            addListItem(currList.id);
+            loadLists();
         })
 
         column.append(btn);
 
         content.appendChild(column);
 
-        loadListItems(list[i]);
+        loadListItems(currList);
     }
 }
 

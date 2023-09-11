@@ -129,7 +129,7 @@ body {
 }
 
 .column h2 {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .add-list-item {
@@ -145,4 +145,22 @@ body {
 
 .add-list-item:hover {
     color: black;
+}
+
+.todo {
+    border: solid #dde1e2 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.todo:hover {
+    background-color: #dde1e2;
+    border-color: black;
+}
+
+.todo * {
+    margin-bottom: 0;
+    margin-top: 0;
 }
