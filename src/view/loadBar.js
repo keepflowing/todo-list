@@ -13,7 +13,7 @@ const loadScroll = (topBar) => {
 
     leftBtn.addEventListener("click", () => {
         content.scroll({
-            left: content.scrollLeft - 400,
+            left: content.scrollLeft - 430,
             behavior: "smooth",
           });
     });
@@ -24,7 +24,7 @@ const loadScroll = (topBar) => {
 
     rightBtn.addEventListener("click", () => {
         content.scroll({
-            left: content.scrollLeft + 400,
+            left: content.scrollLeft + 430,
             behavior: "smooth",
           });
     });

@@ -7,6 +7,29 @@ body {
     padding-top: 2rem;
 }
 
+.prio {
+    border: solid black 1px;
+    border-radius: 10px;
+    height: 12px;
+    width: 12px;
+}
+
+.high {
+    background-color: red;
+}
+
+.medium {
+    background-color: yellow;
+}
+
+.low {
+    background-color: green;
+}
+
+.none {
+    background-color: blue;
+}
+
 .invisible {
     visibility: hidden;
 }
@@ -125,7 +148,7 @@ body {
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     flex: 0 0 auto;
     padding: 2rem;
-    width: 370px;
+    width: 400px;
 }
 
 .column h2 {
@@ -165,11 +188,30 @@ body {
     margin-top: 0;
 }
 
+.todo-top {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.todo-desc {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.display-none {
+    display: none;
+}
+
 dialog {
     border: none;
     border-radius: 10px;
-    height: 600px;
-    width: 400px;
+    height: 320px;
+    padding: 25px;
+    width: 300px;
 }
 
 dialog::backdrop {
@@ -181,10 +223,31 @@ form * {
     margin: 5px;
 }
 
+form input {
+    border: solid #dde1e2 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    height: 24px;
+    margin-top: 10px;
+    padding: 2px;
+}
+
+form input:focus {
+    border: solid black 2px;
+    outline: none;
+}
+
+form input[type="submit"] {
+    height: 35px;
+} 
+
 form label {
     display: inline-block;
+    font-size: 20px;
 }
 
 form select {
-    display: inline-block
+    display: inline-block;
+    font-size: 18px;
 }

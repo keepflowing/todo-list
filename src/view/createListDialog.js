@@ -8,7 +8,7 @@ const createListDialog = () => {
     const name = document.createElement("input");
     const btn = document.createElement("input");
     name.type = "text";
-    name.id = "name-input";
+    name.placeholder = "Title..."
     name.required = true;
     form.appendChild(name);
     form.appendChild(btn);
@@ -16,7 +16,7 @@ const createListDialog = () => {
     btn.value = "Submit";
 
 
-    h1.innerText = "hello world";
+    h1.innerText = "Create List";
     dialog.appendChild(h1);
     dialog.appendChild(form);
 
