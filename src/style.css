@@ -38,6 +38,7 @@ body {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 #menu {
@@ -119,15 +120,6 @@ body {
     background-color: #a2a2a2;
 }
 
-#content {
-    align-items: start;
-    display: flex;
-    gap: 2rem;
-    height: 600px;
-    overflow: hidden;
-    padding-top: 2rem;
-}
-
 #settings-page {
     align-items: center;
     background-color: #F4FDFF;
@@ -140,6 +132,15 @@ body {
     width: 500px;
 }
 
+#content {
+    align-items: start;
+    display: flex;
+    height: 700px;
+    overflow: hidden;
+    padding-top: 35px;
+    width: 1740px;
+}
+
 .column {
     background-color: #F4FDFF;
     border-radius: 15px;
@@ -147,8 +148,13 @@ body {
     box-shadow:
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     flex: 0 0 auto;
-    padding: 2rem;
+    margin-right: 35px;
+    padding: 32px;
     width: 400px;
+}
+
+#content:last-child {
+    margin-right: 0px;
 }
 
 .column h2 {

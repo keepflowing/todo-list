@@ -3,13 +3,12 @@ import List from "../models/list";
 
 const createList = (name) => {
     const lists = getLocalStorage();
+    let newList = new List(name);
     if(lists) {
-        let newList = new List(name);
         lists.push(newList);
         setLocalStorage(lists);
     }
     else {
-        let newList = new List(name);
         let list = [newList];
         setLocalStorage(list);
     }

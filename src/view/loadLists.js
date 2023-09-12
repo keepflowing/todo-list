@@ -14,9 +14,12 @@ const loadLists = () => {
         let column = document.createElement("div");
         column.classList.add("column");
         column.id = "l" + currList.id;
+        let topDiv = document.createElement("div");
+        topDiv.classList.add("todo-top");
         let h2 = document.createElement("h2");
         h2.innerText = currList.name;
-        column.appendChild(h2);
+        topDiv.appendChild(h2);
+        column.appendChild(topDiv);
 
         let listsDiv = document.createElement("div");
         listsDiv.classList.add("listContainer");
@@ -33,7 +36,7 @@ const loadLists = () => {
             dialog.showModal();
         })
 
-        column.append(btn);
+        topDiv.append(btn);
 
         content.appendChild(column);
 
