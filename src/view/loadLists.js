@@ -1,6 +1,7 @@
-import { getLocalStorage, setLocalStorage } from "../models/storage";
+import { getLocalStorage } from "../models/storage";
 import loadListItems from "./loadListItems";
 import createTodoDialog from "./createTodoDialog";
+import deleteList from "../controller/deleteList";
 
 const loadLists = () => {
     let list = getLocalStorage();
@@ -37,6 +38,17 @@ const loadLists = () => {
         })
 
         topDiv.append(btn);
+
+        let deleteListP = document.createElement("p");
+        deleteListP.classList.add("delete-list");
+        deleteListP.innerText = "Delete list";
+
+        deleteListP.addEventListener("click", () => {
+            deleteList(currList.id);
+            loadLists();
+        });
+
+        column.appendChild(deleteListP);
 
         content.appendChild(column);
 

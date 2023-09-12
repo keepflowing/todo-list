@@ -150,6 +150,7 @@ body {
     flex: 0 0 auto;
     margin-right: 35px;
     padding: 32px;
+    padding-bottom: 20px;
     width: 400px;
 }
 
@@ -159,6 +160,14 @@ body {
 
 .column h2 {
     font-size: 24px;
+}
+
+.delete-list {
+    color: red;
+    cursor: pointer;
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .add-list-item {
