@@ -231,11 +231,6 @@ body {
     display: none;
 }
 
-.bottom-div-right * {
-    display: inline-block;
-    margin-left: 5px;
-}
-
 dialog {
     border: none;
     border-radius: 10px;

@@ -6,7 +6,6 @@ const addListToLocalStorage = (list) => {
         if (localStorage[i].id === list.id) {
             localStorage[i].todos = list.todos;
         }
-        console.log(localStorage);
         setLocalStorage(localStorage);
     }
 }
@@ -14,7 +13,7 @@ const addListToLocalStorage = (list) => {
 const deleteListItem = (list, id) => {
     for (let i in list.todos) {
         if (list.todos[i].id === id) {
-            list.todos.splice(i,i+1);
+            list.todos.splice(i,1);     
             addListToLocalStorage(list);
         }
     }

@@ -36,7 +36,7 @@ const loadListItems = (list, mode) => {
 
         let h3 = document.createElement("h3");
         h3.innerText = todo.title;
-        todoTitle.appendChild(h3)
+        todoTitle.appendChild(h3);
 
         let p = document.createElement("p");
         let d = todo.dueDate.toString();
@@ -47,26 +47,27 @@ const loadListItems = (list, mode) => {
         todoHidden.classList.add("todo-desc");
         todoHidden.classList.add("display-none");
 
-        todoHidden.innerHTML = `<p>${todo.description}</p>`;
+        let midDiv = document.createElement("div");
+        midDiv.classList.add("space-between-center");
+        midDiv.innerHTML = `<p>${todo.description}</p>`;
+        midDiv.innerHTML += `<p>${d.slice(11,16)}</p>`;
+
+        todoHidden.appendChild(midDiv);
 
         let bottomDiv = document.createElement("div");
         bottomDiv.innerHTML = `<p>Priority: ${todo.priority}</p>`;
-        let bottomDivRight = document.createElement("div");
-        bottomDivRight.classList.add("bottom-div-right");
 
         if (mode === "lists") {
-            let deleteTodo = document.createElement("button");
-            deleteTodo.innerText = "Delete"
-            bottomDivRight.appendChild(deleteTodo);
-
-            deleteTodo.addEventListener("click", () => {
+            let removeTodo = document.createElement("button");
+            removeTodo.innerText = "Delete";
+            removeTodo.id = "r" + id;
+            removeTodo.addEventListener("click", () => {
                 deleteListItem(list, todo.id);
-                loadListItems(list);
+                loadListItems(list, "lists");
             });
+            bottomDiv.appendChild(removeTodo);
         }
-        bottomDivRight.innerHTML += `<p>${d.slice(11,16)}</p>`;
         
-        bottomDiv.appendChild(bottomDivRight);
         bottomDiv.classList.add("space-between-center");
         todoHidden.appendChild(bottomDiv);
         div.appendChild(todoHidden);

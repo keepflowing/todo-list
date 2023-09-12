@@ -41,7 +41,7 @@ const loadLists = (mode) => {
             btn.innerText = "+";
     
             btn.addEventListener("click", () => {
-                let dialog = createTodoDialog(currList.id);
+                let dialog = createTodoDialog(currList);
                 document.body.appendChild(dialog);
                 dialog.showModal();
             })

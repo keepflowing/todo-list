@@ -1,8 +1,8 @@
 import addListItem from "../controller/addListItem";
-import loadLists from "./loadLists";
-import format from "date-fns/format";
+import { getLocalStorage } from "../models/storage";
+import loadListItems from "./loadListItems";
 
-const createTodoDialog = (id) => {
+const createTodoDialog = (list) => {
     let oldDiag = document.querySelector("#create-todo-dialog");
     if(oldDiag !== null) {
         document.body.removeChild(oldDiag);
@@ -58,8 +58,15 @@ const createTodoDialog = (id) => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
         if (name.value.length > 0 && date.value !== "") {
-            addListItem(id, name.value, desc.value, prio.value, date.value);
-            loadLists();
+            addListItem(list.id, name.value, desc.value, prio.value, date.value);
+            let localStorage = getLocalStorage();
+            //Find the list we're adding to
+            for (let i in localStorage) {
+                if(localStorage[i].id === list.id) {
+                    list = localStorage[i];
+                }
+            }
+            loadListItems(list, "lists");
             let diag = document.querySelector("#create-todo-dialog");
             document.body.removeChild(diag);
         }
