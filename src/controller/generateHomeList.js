@@ -42,6 +42,9 @@ const generateHomeList = () => {
     }
 
     sortTodos(today);
+    sortTodos(week);
+    sortTodos(month);
+    sortTodos(year);
 
     homeList.push(today, week, month, year);
 
