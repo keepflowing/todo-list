@@ -7,4 +7,4 @@ const setLocalStorage = (list) => {
     localStorage.setItem("lists", listStr);
 }
 
-export {getLocalStorage, setLocalStorage };
+export { getLocalStorage, setLocalStorage };

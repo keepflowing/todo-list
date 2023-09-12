@@ -168,7 +168,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 30px;
 }
 
@@ -194,13 +194,18 @@ body {
     margin-top: 0;
 }
 
-.todo-top {
+.space-between-center {
     align-items: center;
     display: flex;
     gap: 8px;
     justify-content: space-between;
     margin-left: 5px;
     margin-right: 10px;
+}
+
+.space-between-center h2, button {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .todo-desc {
