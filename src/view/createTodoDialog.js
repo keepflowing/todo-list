@@ -25,13 +25,13 @@ const createTodoDialog = (id) => {
     
     name.type = "text";
     name.placeholder = "Title..."
-    name.maxLength = 15;
+    name.maxLength = 20;
     name.required = true;
     form.appendChild(name);
     
     desc.type = "text";
     desc.placeholder = "Description..."
-    desc.maxLength = 25;
+    desc.maxLength = 30;
     form.appendChild(desc);
     
     date.type = "date";

@@ -36,7 +36,9 @@ const loadListItems = (list) => {
         todoTitle.appendChild(h3)
 
         let p = document.createElement("p");
-        p.innerText = todo.dueDate;
+        let d = todo.dueDate.toString();
+        p.innerText = `${d.slice(6,8)}.${d.slice(4,6)}.${d.slice(2,4)}`;
+        //console.log(todo.dueDate);
         todoTop.appendChild(p);
 
         let todoHidden = document.createElement("div");
