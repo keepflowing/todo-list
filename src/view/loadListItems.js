@@ -1,6 +1,6 @@
 import deleteListItem from "../controller/deleteListItem";
 
-const loadListItems = (list) => {
+const loadListItems = (list, mode) => {
     let id = list.id;
     const listDOM = document.querySelector(`#l${id} .listContainer`);
     listDOM.innerHTML = "";
@@ -40,8 +40,7 @@ const loadListItems = (list) => {
 
         let p = document.createElement("p");
         let d = todo.dueDate.toString();
-        p.innerText = `${d.slice(6,8)}.${d.slice(4,6)}.${d.slice(2,4)}`;
-        //console.log(todo.dueDate);
+        p.innerText = `${d.slice(8,10)}.${d.slice(5,7)}.${d.slice(2,4)}`;
         todoTop.appendChild(p);
 
         let todoHidden = document.createElement("div");
@@ -52,16 +51,22 @@ const loadListItems = (list) => {
 
         let bottomDiv = document.createElement("div");
         bottomDiv.innerHTML = `<p>Priority: ${todo.priority}</p>`;
+        let bottomDivRight = document.createElement("div");
+        bottomDivRight.classList.add("bottom-div-right");
 
-        let deleteTodo = document.createElement("button");
-        deleteTodo.innerText = "Delete"
-        bottomDiv.appendChild(deleteTodo);
+        if (mode === "lists") {
+            let deleteTodo = document.createElement("button");
+            deleteTodo.innerText = "Delete"
+            bottomDivRight.appendChild(deleteTodo);
 
-        deleteTodo.addEventListener("click", () => {
-            deleteListItem(list, todo.id);
-            loadListItems(list);
-        });
-
+            deleteTodo.addEventListener("click", () => {
+                deleteListItem(list, todo.id);
+                loadListItems(list);
+            });
+        }
+        bottomDivRight.innerHTML += `<p>${d.slice(11,16)}</p>`;
+        
+        bottomDiv.appendChild(bottomDivRight);
         bottomDiv.classList.add("space-between-center");
         todoHidden.appendChild(bottomDiv);
         div.appendChild(todoHidden);

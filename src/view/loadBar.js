@@ -68,8 +68,13 @@ const loadBar = () => {
     topBar.appendChild(nav);
     topBar.appendChild(scroll);
 
+    navLinks[0].addEventListener("click", () => {
+        loadLists("home");
+        scroll.classList.remove("invisible");
+    });
+
     navLinks[1].addEventListener("click", () => {
-        loadLists();
+        loadLists("lists");
         scroll.classList.remove("invisible");
     });
 

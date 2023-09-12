@@ -222,8 +222,18 @@ body {
     margin-right: 10px;
 }
 
+.todo-desc .space-between-center {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .display-none {
     display: none;
+}
+
+.bottom-div-right * {
+    display: inline-block;
+    margin-left: 5px;
 }
 
 dialog {

@@ -1,5 +1,6 @@
 import addListItem from "../controller/addListItem";
 import loadLists from "./loadLists";
+import format from "date-fns/format";
 
 const createTodoDialog = (id) => {
     let oldDiag = document.querySelector("#create-todo-dialog");
@@ -34,7 +35,7 @@ const createTodoDialog = (id) => {
     desc.maxLength = 30;
     form.appendChild(desc);
     
-    date.type = "date";
+    date.type = "datetime-local";
     date.required = true;
     form.appendChild(date);
     
