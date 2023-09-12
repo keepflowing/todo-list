@@ -54,10 +54,13 @@ const createTodoDialog = (id) => {
     dialog.appendChild(h1);
     dialog.appendChild(form);
 
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
         if (name.value.length > 0 && date.value !== "") {
             addListItem(id, name.value, desc.value, prio.value, date.value);
             loadLists();
+            let diag = document.querySelector("#create-todo-dialog");
+            document.body.removeChild(diag);
         }
     });
 

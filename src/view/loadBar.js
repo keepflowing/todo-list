@@ -37,7 +37,6 @@ const loadScroll = (topBar) => {
 }
 
 const loadBar = () => {
-    const dialog = createListDialog();
     const topBar = document.createElement("div");
     topBar.id = "top-bar";
 
@@ -80,6 +79,7 @@ const loadBar = () => {
     });
 
     addList.addEventListener("click", () => {
+        let dialog = createListDialog();
         document.body.appendChild(dialog);
         dialog.showModal();
     });
