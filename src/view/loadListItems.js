@@ -1,5 +1,7 @@
 import deleteListItem from "../controller/deleteListItem";
 import editTodoDialog from "./editTodoDialog";
+import toggleDone from "../controller/toggleDone";
+import { getLocalStorage } from "../models/storage";
 
 const loadListItems = (list, mode) => {
     let id = list.id;
@@ -9,20 +11,28 @@ const loadListItems = (list, mode) => {
         let div = document.createElement("div");
         div.classList.add("todo");
         let todo = list.todos[i];
-        
+
         let prioDiv = document.createElement("div");
         prioDiv.classList.add("prio");
-        if(todo.priority === "High") {
-            prioDiv.classList.add("high");
+
+        if (todo.done === true) {
+            div.classList.add("todo-done");
+            prioDiv.classList.add("bg-grey");
         }
-        else if (todo.priority === "Medium"){
-            prioDiv.classList.add("medium");
-        }
-        else if (todo.priority === "Low"){
-            prioDiv.classList.add("low");
-        }
+
         else {
-            prioDiv.classList.add("none");
+            if(todo.priority === "High") {
+                prioDiv.classList.add("high");
+            }
+            else if (todo.priority === "Medium"){
+                prioDiv.classList.add("medium");
+            }
+            else if (todo.priority === "Low"){
+                prioDiv.classList.add("low");
+            }
+            else {
+                prioDiv.classList.add("none");
+            }
         }
 
         let todoTop = document.createElement("div");
@@ -67,6 +77,14 @@ const loadListItems = (list, mode) => {
             });
 
             bottomDiv.appendChild(removeTodo);
+
+            let toggleBtn = document.createElement("button");
+            toggleBtn.innerText = "Toggle";
+            toggleBtn.addEventListener("click", () => {
+                toggleDone(list, todo.id);
+                loadListItems(list, "lists");
+            });
+            bottomDiv.appendChild(toggleBtn);
 
             let editTodo = document.createElement("button");
             editTodo.innerText = "Edit";

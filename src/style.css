@@ -205,6 +205,18 @@ body {
     margin-top: 0;
 }
 
+.todo-done {
+    color: #a2a2a2;
+}
+
+.todo-done h3 {
+    text-decoration: line-through;
+}
+
+.bg-grey {
+    color: #a2a2a2;
+}
+
 .space-between-center {
     align-items: center;
     display: flex;
