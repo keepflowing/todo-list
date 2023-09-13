@@ -3,6 +3,7 @@ import loadListItems from "./loadListItems";
 import createTodoDialog from "./createTodoDialog";
 import deleteList from "../controller/deleteList";
 import generateHomeList from "../controller/generateHomeList";
+import renameListDialog from "./renameListDialog";
 
 const loadLists = (mode) => {
     let list = [];
@@ -23,10 +24,12 @@ const loadLists = (mode) => {
         let column = document.createElement("div");
         column.classList.add("column");
         column.id = "l" + currList.id;
+
         let topDiv = document.createElement("div");
         topDiv.classList.add("space-between-center");
         let h2 = document.createElement("h2");
         h2.innerText = currList.name;
+
         topDiv.appendChild(h2);
         column.appendChild(topDiv);
 
@@ -47,6 +50,19 @@ const loadLists = (mode) => {
             })
     
             topDiv.append(btn);
+
+            let botDiv = document.createElement("div");
+            botDiv.classList.add("space-between-center")
+
+            let rename = document.createElement("p");
+            rename.innerText = "Rename list";
+            rename.classList.add("rename-list");
+            rename.addEventListener("click", () => {
+                let renameDiag = renameListDialog(currList);
+                document.body.appendChild(renameDiag);
+                renameDiag.showModal();
+            });
+            botDiv.appendChild(rename);
     
             let deleteListP = document.createElement("p");
             deleteListP.classList.add("delete-list");
@@ -57,7 +73,8 @@ const loadLists = (mode) => {
                 loadLists("lists");
             });
     
-            column.appendChild(deleteListP);
+            botDiv.appendChild(deleteListP);
+            column.appendChild(botDiv);
         }
 
         content.appendChild(column);
