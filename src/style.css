@@ -7,6 +7,21 @@ body {
     padding-top: 2rem;
 }
 
+dialog button {
+    background-color: #a2a2a2;
+    border: none;
+    border-radius: 15px;
+    cursor:pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 5px;
+    width: 90px;
+}
+
+dialog button:hover {
+    background-color: #585858;
+}
+
 .prio {
     border: solid black 1px;
     border-radius: 10px;
@@ -38,7 +53,6 @@ body {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-right: 10px;
 }
 
 #menu {
@@ -101,6 +115,7 @@ body {
     display: flex;
     height: 50px;
     justify-content: space-around;
+    margin-right: 35px;
     padding: 15px;
     width: 120px;
 }
@@ -132,13 +147,27 @@ body {
     width: 500px;
 }
 
+#settings-page button {
+    background-color: #a2a2a2;
+    border: none;
+    border-radius: 15px;
+    cursor:pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 5px;
+    width: 150px;
+}
+
+#settings-page button:hover {
+    background-color:#585858;
+}
+
 #content {
     align-items: start;
     display: flex;
     height: 650px;
     overflow: hidden;
     padding-top: 35px;
-    width: 1740px;
 }
 
 .column {
@@ -299,4 +328,44 @@ form label {
 form select {
     display: inline-block;
     font-size: 18px;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+    #content {
+        width: 435px;
+    }
+    #top-bar {
+        width: 435px
+    }
+}
+
+@media only screen and (min-width: 890px) {
+    #content {
+        width: 870px;
+    }
+    #top-bar {
+        width: 870px
+    }
+}
+
+@media only screen and (min-width: 1335px) {
+    #content {
+        width: 1305px;
+    }
+    #top-bar {
+        width: 1305px
+    }
+}
+
+@media only screen and (min-width: 1780px) {
+    #content {
+        width: 1740px;
+    }
+    #top-bar {
+        width: 1740px
+    }
 }
