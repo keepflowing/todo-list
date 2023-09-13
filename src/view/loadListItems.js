@@ -1,4 +1,5 @@
 import deleteListItem from "../controller/deleteListItem";
+import editTodoDialog from "./editTodoDialog";
 
 const loadListItems = (list, mode) => {
     let id = list.id;
@@ -60,12 +61,21 @@ const loadListItems = (list, mode) => {
         if (mode === "lists") {
             let removeTodo = document.createElement("button");
             removeTodo.innerText = "Delete";
-            removeTodo.id = "r" + id;
             removeTodo.addEventListener("click", () => {
                 deleteListItem(list, todo.id);
                 loadListItems(list, "lists");
             });
+
             bottomDiv.appendChild(removeTodo);
+
+            let editTodo = document.createElement("button");
+            editTodo.innerText = "Edit";
+            editTodo.addEventListener("click", () => {
+                let diag = editTodoDialog(list, todo);
+                document.body.appendChild(diag);
+                diag.showModal();
+            });
+            bottomDiv.appendChild(editTodo);
         }
         
         bottomDiv.classList.add("space-between-center");
