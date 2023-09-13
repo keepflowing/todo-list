@@ -1,7 +1,6 @@
-import deleteListItem from "../controller/deleteListItem";
+import deleteTodoDialog from "./deleteTodoDialog";
 import editTodoDialog from "./editTodoDialog";
 import toggleDone from "../controller/toggleDone";
-import { getLocalStorage } from "../models/storage";
 
 const loadListItems = (list, mode) => {
     let id = list.id;
@@ -60,7 +59,7 @@ const loadListItems = (list, mode) => {
 
         let midDiv = document.createElement("div");
         midDiv.classList.add("space-between-center");
-        midDiv.innerHTML = `<p>${todo.description}</p>`;
+        midDiv.innerHTML = `<p><i>${todo.description}</i></p>`;
         midDiv.innerHTML += `<p>${d.slice(11,16)}</p>`;
 
         todoHidden.appendChild(midDiv);
@@ -69,31 +68,35 @@ const loadListItems = (list, mode) => {
         bottomDiv.innerHTML = `<p>Priority: ${todo.priority}</p>`;
 
         if (mode === "lists") {
+            let bottomDivR = document.createElement("div");
             let removeTodo = document.createElement("button");
-            removeTodo.innerText = "Delete";
+            removeTodo.innerText = "🗑️";
             removeTodo.addEventListener("click", () => {
-                deleteListItem(list, todo.id);
-                loadListItems(list, "lists");
+                let deleteDiag = deleteTodoDialog(list, todo);
+                document.body.appendChild(deleteDiag);
+                deleteDiag.showModal();
             });
 
-            bottomDiv.appendChild(removeTodo);
-
-            let toggleBtn = document.createElement("button");
-            toggleBtn.innerText = "Toggle";
-            toggleBtn.addEventListener("click", () => {
-                toggleDone(list, todo.id);
-                loadListItems(list, "lists");
-            });
-            bottomDiv.appendChild(toggleBtn);
+            bottomDivR.appendChild(removeTodo);
 
             let editTodo = document.createElement("button");
-            editTodo.innerText = "Edit";
+            editTodo.innerText = "🖊️";
             editTodo.addEventListener("click", () => {
                 let diag = editTodoDialog(list, todo);
                 document.body.appendChild(diag);
                 diag.showModal();
             });
-            bottomDiv.appendChild(editTodo);
+            bottomDivR.appendChild(editTodo);
+
+            let toggleBtn = document.createElement("button");
+            toggleBtn.innerText = "✅";
+            toggleBtn.addEventListener("click", () => {
+                toggleDone(list, todo.id);
+                loadListItems(list, "lists");
+            });
+            bottomDivR.appendChild(toggleBtn);
+
+            bottomDiv.appendChild(bottomDivR);
         }
         
         bottomDiv.classList.add("space-between-center");

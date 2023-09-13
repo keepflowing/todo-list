@@ -227,8 +227,18 @@ body {
 }
 
 .space-between-center h2, button {
+    margin-left: 5px;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.todo .space-between-center button {
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
 }
 
 .todo-desc {

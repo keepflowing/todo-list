@@ -1,7 +1,7 @@
 import { getLocalStorage } from "../models/storage";
 import loadListItems from "./loadListItems";
 import createTodoDialog from "./createTodoDialog";
-import deleteList from "../controller/deleteList";
+import deleteListDialog from "./deleteListDialog";
 import generateHomeList from "../controller/generateHomeList";
 import renameListDialog from "./renameListDialog";
 
@@ -69,8 +69,9 @@ const loadLists = (mode) => {
             deleteListP.innerText = "Delete list";
     
             deleteListP.addEventListener("click", () => {
-                deleteList(currList.id);
-                loadLists("lists");
+                let deleteListDiag = deleteListDialog(currList);
+                document.body.append(deleteListDiag);
+                deleteListDiag.showModal();
             });
     
             botDiv.appendChild(deleteListP);
