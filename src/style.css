@@ -3,8 +3,6 @@
 body {
     background-image: url('./img/deepmind.jpg');
     font-family: 'Poppins';
-    padding: 5rem;
-    padding-top: 2rem;
 }
 
 dialog button {
@@ -53,6 +51,7 @@ dialog button:hover {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    width: 435px;
 }
 
 #menu {
@@ -168,6 +167,7 @@ dialog button:hover {
     height: 650px;
     overflow: hidden;
     padding-top: 35px;
+    width: 435px;
 }
 
 .column {
@@ -330,20 +330,53 @@ form select {
     font-size: 18px;
 }
 
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#btn-container {
+    margin-bottom: -20px;
+    margin-top: 10px;
+}
+
+#top-bar {
+    display: block;
+}
+
+#top-bar h1 {
+    display: none;
+}
+
 @media only screen and (min-width: 600px) {
     body {
-        padding: 1rem;
-        padding-top: 2rem;
+        display: block;
+        padding: 2rem;
+        padding-top: 1rem;
     }
     #content {
         width: 435px;
     }
     #top-bar {
+        display: flex;
         width: 435px
+    }
+    #btn-container {
+        margin: 0;
+        margin-right: 35px;
     }
 }
 
 @media only screen and (min-width: 890px) {
+    #top-bar h1 {
+        display: block;
+    }
+    body {
+        padding: 3rem;
+        padding-top: 2rem;
+    }
     #content {
         width: 870px;
     }
@@ -353,6 +386,10 @@ form select {
 }
 
 @media only screen and (min-width: 1335px) {
+    body {
+        padding: 4rem;
+        padding-top: 2rem;
+    }
     #content {
         width: 1305px;
     }
@@ -362,6 +399,10 @@ form select {
 }
 
 @media only screen and (min-width: 1780px) {
+    body {
+        padding: 5rem;
+        padding-top: 2rem;
+    }
     #content {
         width: 1740px;
     }
