@@ -332,10 +332,10 @@ form select {
 }
 
 body {
-    align-items: center;
+    align-items: start;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
 }
 
 #btn-container {
@@ -344,7 +344,8 @@ body {
 }
 
 #top-bar {
-    display: block;
+    align-items: start;
+    flex-direction: column;
 }
 
 #top-bar h1 {
@@ -361,7 +362,6 @@ body {
         width: 435px;
     }
     #top-bar {
-        display: flex;
         width: 435px
     }
     #btn-container {
