@@ -362,6 +362,8 @@ body {
         width: 435px;
     }
     #top-bar {
+        align-items: center;
+        flex-direction: row;
         width: 435px
     }
     #btn-container {
