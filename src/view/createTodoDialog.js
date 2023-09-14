@@ -45,7 +45,7 @@ const createTodoDialog = (list) => {
     label.innerText = "Priority:"
     form.appendChild(label);
     form.appendChild(prio);
-    form.innerHTML += "<br>";
+    form.appendChild(document.createElement('br'));
 
     btn.type = "submit";
     btn.value = "Submit";
