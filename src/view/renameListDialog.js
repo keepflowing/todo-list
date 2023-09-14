@@ -23,7 +23,7 @@ const renameListDialog = (list) => {
     btn.value = "Submit";
 
 
-    h1.innerText = "Create List";
+    h1.innerText = "Rename List";
     dialog.appendChild(h1);
     dialog.appendChild(form);
 

@@ -45,11 +45,15 @@ const createTodoDialog = (list) => {
     label.innerText = "Priority:"
     form.appendChild(label);
     form.appendChild(prio);
+    form.innerHTML += "<br>";
 
     btn.type = "submit";
     btn.value = "Submit";
     form.appendChild(btn);
-
+    let cancel = document.createElement("input");
+    cancel.type = "submit";
+    cancel.value = "Cancel";
+    form.appendChild(cancel);
 
     h1.innerText = "Create Todo:";
     dialog.appendChild(h1);
@@ -72,6 +76,11 @@ const createTodoDialog = (list) => {
         }
     });
 
+    cancel.addEventListener("click", (e) => {
+        e.preventDefault();
+        let diag = document.querySelector("#create-todo-dialog");
+        document.body.removeChild(diag);
+    });
 
     return dialog;
 }

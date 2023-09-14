@@ -20,7 +20,10 @@ const createListDialog = () => {
     form.appendChild(btn);
     btn.type = "submit";
     btn.value = "Submit";
-
+    let cancel = document.createElement("input");
+    cancel.type = "submit";
+    cancel.value = "Cancel";
+    form.appendChild(cancel);
 
     h1.innerText = "Create List";
     dialog.appendChild(h1);
@@ -36,6 +39,11 @@ const createListDialog = () => {
         }
     });
 
+    cancel.addEventListener("click", (e) => {
+        e.preventDefault();
+        let diag = document.querySelector("#create-list-dialog");
+        document.body.removeChild(diag);
+    });
 
     return dialog;
 }

@@ -317,6 +317,7 @@ form input:focus {
 }
 
 form input[type="submit"] {
+    display: inline-block;
     height: 35px;
 } 
 
